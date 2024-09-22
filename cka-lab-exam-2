@@ -1,0 +1,45 @@
+Question: 1
+
+Weight: 2
+SECTION: ARCHITECTURE, INSTALL AND MAINTENANCE
+
+
+Find the node across all clusters that consumes the most CPU and store the result to the file /opt/high_cpu_node in the following format cluster_name,node_name.
+
+The node could be in any clusters that are currently configured on the student-node.
+
+NOTE: It's recommended to wait for a few minutes to allow deployed objects to become fully operational and start consuming resources.
+
+
+data stored in /opt/high_cpu_node?
+
+
+chatgpt Ans Q 1:
+----------
+
+This command does the following:
+
+kubectl --context=<context-name> top nodes --no-headers: Gets the CPU usage of nodes without headers for the specified context.
+awk '{print $3,$1}': Extracts the CPU usage (third column) and node name (first column).
+sort -rn: Sorts the CPU usage in reverse numerical order.
+head -1: Gets the node with the highest CPU usage.
+2. Store the result in a file:
+You can manually run the above command for each context and store the results. Here's how you can do it:
+
+sh
+Copy code
+kubectl --context=cluster1 top nodes --no-headers | awk '{print $3,$1}' | sort -rn | head -1 >> /opt/high_cpu_node
+kubectl --context=cluster2 top nodes --no-headers | awk '{print $3,$1}' | sort -rn | head -1 >> /opt/high_cpu_node
+kubectl --context=cluster3 top nodes --no-headers | awk '{print $3,$1}' | sort -rn | head -1 >> /opt/high_cpu_node
+kubectl --context=cluster4 top nodes --no-headers | awk '{print $3,$1}' | sort -rn | head -1 >> /opt/high_cpu_node
+
+sort -rn /opt/high_cpu_node | head -1 | awk '{print $2, $3}' > /opt/high_cpu_node
+
+3. Find the highest CPU consuming node across all clusters:
+After you have stored the results in the file, you can use the following command to find the node with the highest CPU usage:
+
+sh
+Copy code
+sort -rn /opt/high_cpu_node | head -1 > /opt/high_cpu_node
+
+----------------------------------------------------------------------------------------------------------
