@@ -10,4 +10,20 @@ Tip:1
 Tip 2
 ----
 
-  Use kubernetes documenation pages to refer yaml files
+  Use kubernetes documenation pages to refer yaml files, exam not allowed do bookmark
+
+Tip 3:
+-----
+Review your works after each question completion make sure it's correct 
+
+Tip 4
+----
+You must copy and paste during exam
+
+Tip 5 :
+----
+manage time effectively  don't stcuk on single question, complete easy questions first comeback difficult questions
+
+
+
+
