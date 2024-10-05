@@ -1,0 +1,13 @@
+1. k8s exam has six cluster
+2. has to switch ckuster verify correct cluster before attemting each Question
+3. mistake we made doing things in wrong cluster
+
+Tip:1 
+-----
+
+  This is handson exam has to familier with kubectl command line tools use alias if needed
+
+Tip 2
+----
+
+  Use kubernetes documenation pages to refer yaml files
